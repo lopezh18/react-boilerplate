@@ -60,7 +60,7 @@ export function HomePage({
   return (
     <article>
       <Helmet>
-        <title>Home Page</title>
+        <title>Eateries</title>
         <meta
           name="description"
           content="A React.js Boilerplate application homepage"
@@ -79,6 +79,21 @@ export function HomePage({
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
           </H2>
+          <Form onSubmit={onSubmitForm}>
+            <label htmlFor="username">
+              <FormattedMessage {...messages.trymeMessage} />
+              <AtPrefix>
+                <FormattedMessage {...messages.trymeAtPrefix} />
+              </AtPrefix>
+              <Input
+                id="username"
+                type="text"
+                placeholder="mxstbr"
+                value={username}
+                onChange={onChangeUsername}
+              />
+            </label>
+          </Form>
           <Form onSubmit={onSubmitForm}>
             <label htmlFor="username">
               <FormattedMessage {...messages.trymeMessage} />

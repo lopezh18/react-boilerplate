@@ -25,7 +25,7 @@ exports[`<Header /> should render a div 1`] = `
     </a>
     <a
       class="HeaderLink-sc-1mtyaiv-0 hMiTYG"
-      href="/features"
+      href="/recent"
     >
       <span>
         Features
