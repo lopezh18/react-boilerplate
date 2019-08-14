@@ -8,25 +8,21 @@ import { defineMessages } from 'react-intl';
 export const scope = 'boilerplate.containers.HomePage';
 
 export default defineMessages({
-  startProjectHeader: {
-    id: `${scope}.start_project.header`,
-    defaultMessage: 'Start your next react project in seconds',
+  description: {
+    id: `${scope}.description`,
+    defaultMessage: 'Your go to location for all of the finest eats',
   },
-  startProjectMessage: {
-    id: `${scope}.start_project.message`,
+  startSearch: {
+    id: `${scope}.startSearch`,
     defaultMessage:
-      'A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices',
+      "To begin, enter what you are looking for and where you'd like to find it below.",
   },
-  trymeHeader: {
-    id: `${scope}.tryme.header`,
-    defaultMessage: 'Try me!',
+  term: {
+    id: `${scope}.term`,
+    defaultMessage: 'Find: ',
   },
-  trymeMessage: {
-    id: `${scope}.tryme.message`,
-    defaultMessage: 'Show Github repositories by',
-  },
-  trymeAtPrefix: {
-    id: `${scope}.tryme.atPrefix`,
-    defaultMessage: '@',
+  location: {
+    id: `${scope}.location`,
+    defaultMessage: 'Location: ',
   },
 });

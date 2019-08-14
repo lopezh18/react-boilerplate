@@ -12,8 +12,12 @@ export default defineMessages({
     id: `${scope}.home`,
     defaultMessage: 'Home',
   },
-  features: {
+  recent: {
     id: `${scope}.recent`,
     defaultMessage: 'Recent',
+  },
+  title: {
+    id: `${scope}.title`,
+    defaultMessage: 'Eaterie',
   },
 });

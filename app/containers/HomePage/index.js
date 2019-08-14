@@ -21,7 +21,6 @@ import {
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
 import ReposList from 'components/ReposList';
-import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
 import Form from './Form';
 import Input from './Input';
@@ -37,6 +36,7 @@ const key = 'home';
 
 export function HomePage({
   username,
+  term,
   loading,
   error,
   repos,
@@ -61,49 +61,37 @@ export function HomePage({
     <article>
       <Helmet>
         <title>Eateries</title>
-        <meta
-          name="description"
-          content="A React.js Boilerplate application homepage"
-        />
+        <meta name="description" content="A destination for popular eats" />
       </Helmet>
       <div>
         <CenteredSection>
           <H2>
-            <FormattedMessage {...messages.startProjectHeader} />
+            <FormattedMessage {...messages.description} />
           </H2>
           <p>
-            <FormattedMessage {...messages.startProjectMessage} />
+            <FormattedMessage {...messages.startSearch} />
           </p>
         </CenteredSection>
         <Section>
-          <H2>
-            <FormattedMessage {...messages.trymeHeader} />
-          </H2>
           <Form onSubmit={onSubmitForm}>
-            <label htmlFor="username">
-              <FormattedMessage {...messages.trymeMessage} />
-              <AtPrefix>
-                <FormattedMessage {...messages.trymeAtPrefix} />
-              </AtPrefix>
+            <label htmlFor="term">
+              <FormattedMessage {...messages.term} />
               <Input
-                id="username"
+                id="term"
                 type="text"
-                placeholder="mxstbr"
-                value={username}
+                placeholder="spas, tacos, barbers"
+                value={term}
                 onChange={onChangeUsername}
               />
             </label>
           </Form>
           <Form onSubmit={onSubmitForm}>
             <label htmlFor="username">
-              <FormattedMessage {...messages.trymeMessage} />
-              <AtPrefix>
-                <FormattedMessage {...messages.trymeAtPrefix} />
-              </AtPrefix>
+              <FormattedMessage {...messages.location} />
               <Input
                 id="username"
                 type="text"
-                placeholder="mxstbr"
+                placeholder="Oakland, CA"
                 value={username}
                 onChange={onChangeUsername}
               />
@@ -122,6 +110,7 @@ HomePage.propTypes = {
   repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   onSubmitForm: PropTypes.func,
   username: PropTypes.string,
+  term: PropTypes.string,
   onChangeUsername: PropTypes.func,
 };
 
