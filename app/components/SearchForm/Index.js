@@ -6,7 +6,7 @@ export default class Index extends Component {
     super(props);
     this.state = {
       city: '',
-      state: '',
+      state: 'AL',
       term: '',
     };
 
@@ -16,17 +16,12 @@ export default class Index extends Component {
 
   handleChange(evt) {
     this.setState({ [evt.target.name]: evt.target.value });
-    console.log(this.state);
+    console.log(this.props);
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
     console.log(this.state);
-    this.setState({
-      city: '',
-      state: '',
-      term: '',
-    });
   }
 
   render() {

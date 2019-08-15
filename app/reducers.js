@@ -1,22 +1,36 @@
-/**
- * Combine all reducers in this file and export the combined reducers.
- */
+import {
+  LOAD_RESULTS_SUCCESS,
+  LOAD_RESULTS_ERROR,
+  LOAD_RESULTS,
+} from './constants';
 
-import { combineReducers } from 'redux';
-import { connectRouter } from 'connected-react-router';
+const initialState = {
+  loading: false,
+  error: false,
+  currentSearch: false,
+  searchData: {
+    locations: false,
+    recentSearches: false,
+  },
+};
 
-import history from 'utils/history';
-import languageProviderReducer from 'containers/LanguageProvider/reducer';
+const appReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case LOAD_RESULTS:
+      console.log('state in load', state, payload);
+      return state;
 
-/**
- * Merges the main reducer with the router state and dynamically injected reducers
- */
-export default function createReducer(injectedReducers = {}) {
-  const rootReducer = combineReducers({
-    language: languageProviderReducer,
-    router: connectRouter(history),
-    ...injectedReducers,
-  });
+    case LOAD_RESULTS_SUCCESS:
+      console.log('state in success', state, payload);
+      return state;
 
-  return rootReducer;
-}
+    case LOAD_RESULTS_ERROR:
+      console.log('state in error', state, payload);
+      return state;
+
+    default:
+      return state;
+  }
+};
+
+export default appReducer;
