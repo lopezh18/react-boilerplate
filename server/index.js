@@ -2,7 +2,6 @@
 
 const express = require('express');
 const logger = require('./logger');
-
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
@@ -13,9 +12,27 @@ const ngrok =
     : false;
 const { resolve } = require('path');
 const app = express();
+app.use(express.json());
+
+const recent = require('./routes/recent');
+const search = require('./routes/search');
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
-// app.use('/api', myApi);
+app.use('/recentApi', recent);
+app.use('/searchYelp', search);
+
+// 404 page
+// eslint-disable-next-line func-names
+app.use(function(err, req, res, next) {
+  if (err.stack) console.log(err.stack);
+
+  res.status(err.status || 500);
+
+  return res.json({
+    error: err,
+    message: err.message,
+  });
+});
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

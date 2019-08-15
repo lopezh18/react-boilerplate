@@ -8,8 +8,9 @@ import { defineMessages } from 'react-intl';
 export const scope = 'app.containers.HomePage';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'This is the HomePage container!',
+  details: {
+    id: `${scope}.details`,
+    defaultMessage:
+      'To find a history of your recent searches select Recent and Home to navigate to the Search Form',
   },
 });
