@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 import React, { Component } from 'react';
 
@@ -16,12 +17,14 @@ export default class Index extends Component {
 
   handleChange(evt) {
     this.setState({ [evt.target.name]: evt.target.value });
-    console.log(this.props);
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
-    console.log(this.state);
+    this.props.loadResults({
+      term: this.state.term,
+      location: `${this.state.city.trim()}, ${this.state.state}`,
+    });
   }
 
   render() {

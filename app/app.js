@@ -16,7 +16,8 @@ import { ConnectedRouter } from 'connected-react-router';
 import { BrowserRouter } from 'react-router-dom';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
 // Import root app
 import App from 'containers/App';
@@ -38,7 +39,11 @@ import { translationMessages } from './i18n';
 // Create redux store with history
 // const initialState = {};
 // const store = configureStore(initialState, history);
-const store = createStore(appReducer);
+
+const sagaMiddleware = createSagaMiddleware;
+const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
+
+// const store = createStore(appReducer);
 
 const MOUNT_NODE = document.getElementById('app');
 
@@ -46,7 +51,7 @@ const render = messages => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-            <App />
+        <App />
       </BrowserRouter>
     </Provider>,
     MOUNT_NODE,

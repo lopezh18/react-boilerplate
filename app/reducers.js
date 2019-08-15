@@ -7,25 +7,23 @@ import {
 const initialState = {
   loading: false,
   error: false,
-  currentSearch: false,
-  searchData: {
-    locations: false,
-    recentSearches: false,
-  },
+  searchData: {},
+  locations: {},
+  recentSearches: {},
 };
 
-const appReducer = (state = initialState, { type, payload }) => {
-  switch (type) {
+const appReducer = (state = initialState, action) => {
+  console.log('reducer ran; state & action: ', state, action);
+  switch (action.type) {
     case LOAD_RESULTS:
-      console.log('state in load', state, payload);
-      return state;
+      return { ...state, searchData: action.payload };
 
     case LOAD_RESULTS_SUCCESS:
-      console.log('state in success', state, payload);
-      return state;
+      console.log('state in success', state, action.payload);
+      return { ...state, locations: action.payload };
 
     case LOAD_RESULTS_ERROR:
-      console.log('state in error', state, payload);
+      console.log('state in error', state, action.payload);
       return state;
 
     default:

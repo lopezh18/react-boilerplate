@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-redeclare
-import * as types from './constants';
+import { LOAD_RESULTS } from './constants';
 
 export const loadResults = searchParams => ({
-  type: types.LOAD_RESULTS,
-  payload: { searchParams },
+  type: LOAD_RESULTS,
+  payload: searchParams,
 });

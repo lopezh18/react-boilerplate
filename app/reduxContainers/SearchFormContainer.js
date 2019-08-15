@@ -1,23 +1,21 @@
 import { connect } from 'react-redux';
 import SearchForm from '../components/SearchForm/Index';
-import loadResults from '../action-creators';
+import { loadResults } from '../action-creators';
 
 const mapStateToProps = (state, ownProps) => {
-  const { loading, error, currentSearch, searchData } = state;
+  const { loading, error, searchData, locations } = state;
 
   return {
     loading,
     error,
-    currentSearch,
     searchData,
+    locations,
   };
 };
 
-const SearchFormContainer = connect(
+export default connect(
   mapStateToProps,
   {
     loadResults,
   },
 )(SearchForm);
-
-export default SearchFormContainer;
