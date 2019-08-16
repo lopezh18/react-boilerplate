@@ -2,8 +2,6 @@ const express = require('express');
 const router = new express.Router();
 const axios = require('axios');
 
-// const searchValidation = require('../middlewares/validation');
-
 /**
  * Route to get yelp data
  */
@@ -11,11 +9,11 @@ const axios = require('axios');
 // eslint-disable-next-line func-names
 router.get('/', async function(req, res, next) {
   try {
-    const term = req.body.term
+    const term = req.query.term
       .trim()
       .split(' ')
       .join('%20');
-    const location = req.body.location
+    const location = req.query.location
       .trim()
       .split(' ')
       .join('%20');

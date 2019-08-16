@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import headerImg from '../../images/coffeeShop.jpg';
-import ButtonTest from '../Button/index';
 
 const Div = styled.div`
   color: white;
@@ -25,7 +24,7 @@ const ButtonDiv = styled.div`
   text-align: center;
   display: flex;
   justify-content: center;
-  padding-top: 2em;
+  padding-top: 0.5em;
 `;
 const Button = styled.button`
   display: inline-block;

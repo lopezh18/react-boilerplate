@@ -5,19 +5,15 @@
  *
  */
 
-import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
-// import SearchForm from '../../components/SearchForm/Index';
+import React from 'react';
 import SearchFormContainer from '../../reduxContainers/SearchFormContainer';
+import LocationsBlockContainer from '../../reduxContainers/LocationsBlockContainer';
 
 export default function HomePage() {
   return (
     <div>
-      <h1>
-        <FormattedMessage {...messages.details} />
-      </h1>
       <SearchFormContainer />
+      <LocationsBlockContainer />
     </div>
   );
 }

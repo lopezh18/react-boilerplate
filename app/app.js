@@ -24,6 +24,7 @@ import App from 'containers/App';
 
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
+import { getResults } from './saga';
 import appReducer from './reducers';
 
 // Load the favicon and the .htaccess file
@@ -36,14 +37,11 @@ import 'file-loader?name=.htaccess!./.htaccess';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
-// Create redux store with history
-// const initialState = {};
-// const store = configureStore(initialState, history);
+const sagaMiddleware = createSagaMiddleware();
 
-const sagaMiddleware = createSagaMiddleware;
 const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
 
-// const store = createStore(appReducer);
+sagaMiddleware.run(getResults);
 
 const MOUNT_NODE = document.getElementById('app');
 

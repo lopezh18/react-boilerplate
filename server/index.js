@@ -16,8 +16,10 @@ app.use(express.json());
 
 const recent = require('./routes/recent');
 const search = require('./routes/search');
+const cors = require('cors');
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
+app.use(cors());
 app.use('/recentApi', recent);
 app.use('/searchYelp', search);
 

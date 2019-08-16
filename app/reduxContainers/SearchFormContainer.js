@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SearchForm from '../components/SearchForm/Index';
-import { loadResults } from '../action-creators';
+import { loadResults } from '../actions';
 
 const mapStateToProps = (state, ownProps) => {
   const { loading, error, searchData, locations } = state;

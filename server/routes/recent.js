@@ -1,11 +1,10 @@
 const express = require('express');
-const router = new express.Router();
-// const searchValidation = require('../middlewares/validation');
+const router = new express.Router()
 
 /**
  * Route to get recent searches
  */
-const recent = [{ location: 'San Francisco', term: 'Bao' }];
+const recent = [];
 
 // eslint-disable-next-line func-names
 router.get('/', function(req, res, next) {
@@ -20,7 +19,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   try {
     const newSearch = req.body;
-    recent.push(newSearch);
+    recent.unshift(newSearch);
     return res.json(recent);
   } catch (e) {
     return next(e);

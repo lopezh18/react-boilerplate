@@ -1,6 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const Form = styled.form`
+  text-align: center;
+  margin-bottom: 1em;
+`;
+
+const Button = styled.button`
+  margin-top: 0.5em;
+`;
 
 export default class Index extends Component {
   constructor(props) {
@@ -22,7 +32,7 @@ export default class Index extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.loadResults({
-      term: this.state.term,
+      term: this.state.term.trim(),
       location: `${this.state.city.trim()}, ${this.state.state}`,
     });
   }
@@ -30,7 +40,7 @@ export default class Index extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <label htmlFor="term">Find: </label>
           <input
             name="term"
@@ -106,8 +116,8 @@ export default class Index extends Component {
             <option value="WY">WY</option>
           </select>
           <br />
-          <button>Submit</button>
-        </form>
+          <Button>Submit</Button>
+        </Form>
       </div>
     );
   }
