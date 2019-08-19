@@ -37,7 +37,7 @@ export default class index extends Component {
           <h3>{this.props.name}</h3>
           <Photo as="a" photo={this.props.image_url} href={this.props.url} />
         </Header>
-        <h6>Rating: {this.props.rating}</h6>
+        <h6>Rating: {this.props.rating}/5</h6>
         <p>{this.props.price}</p>
         <p>Reviews: {this.props.review_count} </p>
       </BusinessCard>

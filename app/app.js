@@ -55,7 +55,7 @@ sagaMiddleware.run(getRecents);
 
 const MOUNT_NODE = document.getElementById('app');
 
-const render = messages => {
+const render = () => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>

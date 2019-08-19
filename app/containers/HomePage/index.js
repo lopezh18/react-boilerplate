@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import SearchFormContainer from '../../reduxContainers/SearchFormContainer';
-import LocationsBlockContainer from '../../reduxContainers/LocationsBlockContainer';
+import SearchFormContainer from '../SearchForm/SearchFormContainer';
+import LocationsBlockContainer from '../Locations/LocationsBlockContainer';
 
 export default function HomePage() {
   return (

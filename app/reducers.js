@@ -7,6 +7,7 @@ import {
 } from './constants';
 
 const initialState = {
+  error: false,
   loading: false,
   searchData: {},
   locations: {},
@@ -29,7 +30,7 @@ const appReducer = (state = initialState, action) => {
       };
 
     case LOAD_RESULTS_ERROR:
-      return state;
+      return { ...state, error: true };
 
     case SAVE_RECENTS:
       return { ...state, recentSearches: action.payload };

@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import RecentList from '../../components/RecentList/index';
+import uuid from 'uuid/v4';
 
 const Div = styled.div`
   text-align: center;
@@ -18,7 +19,11 @@ export default class RecentContent extends Component {
     if (this.props.recentSearches.length > 0) {
       const { recentSearches } = this.props;
       content = recentSearches.map(search => (
-        <RecentList term={search.term} location={search.location} />
+        <RecentList
+          key={uuid()}
+          term={search.term}
+          location={search.location}
+        />
       ));
     }
     return <Div>{content}</Div>;
