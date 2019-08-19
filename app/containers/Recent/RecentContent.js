@@ -2,8 +2,8 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import RecentList from '../../components/RecentList/index';
 import uuid from 'uuid/v4';
+import RecentList from '../../components/RecentList/index';
 
 const Div = styled.div`
   text-align: center;
