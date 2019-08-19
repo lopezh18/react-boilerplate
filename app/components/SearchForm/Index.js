@@ -35,6 +35,11 @@ export default class Index extends Component {
       term: this.state.term.trim(),
       location: `${this.state.city.trim()}, ${this.state.state}`,
     });
+    this.setState({
+      city: '',
+      state: 'AL',
+      term: '',
+    });
   }
 
   render() {

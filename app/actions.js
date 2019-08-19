@@ -4,6 +4,8 @@ import {
   LOAD_RESULTS_ERROR,
   LOAD_RESULTS_SUCCESS,
   SAVE_RECENTS,
+  LOAD_RECENTS,
+  LOAD_RECENTS_SUCCESS,
 } from './constants';
 
 export const loadResults = searchParams => ({
@@ -23,5 +25,14 @@ export const loadResultsError = error => ({
 
 export const saveRecents = data => ({
   type: SAVE_RECENTS,
+  payload: data,
+});
+
+export const loadRecents = () => ({
+  type: LOAD_RECENTS,
+});
+
+export const loadRecentsSuccess = data => ({
+  type: LOAD_RECENTS_SUCCESS,
   payload: data,
 });

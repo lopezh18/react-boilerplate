@@ -16,7 +16,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { BrowserRouter } from 'react-router-dom';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 // Import root app
@@ -24,7 +24,7 @@ import App from 'containers/App';
 
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
-import { getResults } from './saga';
+import { getResults, getRecents } from './saga';
 import appReducer from './reducers';
 
 // Load the favicon and the .htaccess file
@@ -39,9 +39,19 @@ import { translationMessages } from './i18n';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
+const store = createStore(
+  appReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__
+    ? compose(
+        applyMiddleware(sagaMiddleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__(),
+      )
+    : applyMiddleware(sagaMiddleware),
+);
+// const store = createStore(appReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(getResults);
+sagaMiddleware.run(getRecents);
 
 const MOUNT_NODE = document.getElementById('app');
 

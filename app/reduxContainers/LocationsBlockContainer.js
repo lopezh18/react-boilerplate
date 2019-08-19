@@ -3,7 +3,6 @@ import LocationsBlock from '../components/LocationsBlock/index';
 
 const mapStateToProps = (state, ownProps) => {
   const { locations, searchData } = state;
-
   return {
     locations,
     searchData,

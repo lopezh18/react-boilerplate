@@ -3,6 +3,7 @@ import {
   LOAD_RESULTS_ERROR,
   LOAD_RESULTS,
   SAVE_RECENTS,
+  LOAD_RECENTS_SUCCESS,
 } from './constants';
 
 const initialState = {
@@ -14,7 +15,6 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
   console.log('reducer ran; state & action: ', state, action);
-
   switch (action.type) {
     case LOAD_RESULTS:
       return { ...state, searchData: action.payload };
@@ -32,6 +32,9 @@ const appReducer = (state = initialState, action) => {
       return state;
 
     case SAVE_RECENTS:
+      return { ...state, recentSearches: action.payload };
+
+    case LOAD_RECENTS_SUCCESS:
       return { ...state, recentSearches: action.payload };
 
     default:

@@ -1,5 +1,7 @@
-import React from 'react';
+/* eslint-disable react/prefer-stateless-function */
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import headerImg from '../../images/coffeeShop.jpg';
 
 const Div = styled.div`
@@ -26,7 +28,7 @@ const ButtonDiv = styled.div`
   justify-content: center;
   padding-top: 0.5em;
 `;
-const Button = styled.button`
+const NavButton = styled(Link)`
   display: inline-block;
   color: palevioletred;
   font-size: 1em;
@@ -40,24 +42,22 @@ const Button = styled.button`
   background: white;
 `;
 
-export default function Header() {
-  return (
-    <div>
-      <Div>
-        <H1>Buscar</H1>
-        <H4>
-          Your go to site for finding the best restaurants, barbers, spas, and
-          more.
-        </H4>
-      </Div>
-      <ButtonDiv>
-        <Button as="a" href="/">
-          Home
-        </Button>
-        <Button as="a" href="/recent">
-          Recent
-        </Button>
-      </ButtonDiv>
-    </div>
-  );
+export default class Header extends Component {
+  render() {
+    return (
+      <div>
+        <Div>
+          <H1>Buscar</H1>
+          <H4>
+            Your go to site for finding the best restaurants, barbers, spas, and
+            more.
+          </H4>
+        </Div>
+        <ButtonDiv>
+          <NavButton to="/">Home</NavButton>
+          <NavButton to="/recent">Recent</NavButton>
+        </ButtonDiv>
+      </div>
+    );
+  }
 }

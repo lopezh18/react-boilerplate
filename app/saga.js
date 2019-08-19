@@ -1,7 +1,12 @@
 import { select, takeLatest, put, call } from 'redux-saga/effects';
-import { LOAD_RESULTS } from './constants';
-import { fetchLocations, saveSearch } from './api';
-import { loadResultsError, loadResultsSuccess, saveRecents } from './actions';
+import { LOAD_RESULTS, LOAD_RECENTS } from './constants';
+import { fetchLocations, saveSearch, fetchRecents } from './api';
+import {
+  loadResultsError,
+  loadResultsSuccess,
+  saveRecents,
+  loadRecentsSuccess,
+} from './actions';
 
 const getParams = state => state.searchData;
 
@@ -19,6 +24,21 @@ function* loadYelpResults() {
   }
 }
 
+function* loadRecentResults() {
+  try {
+    console.log('I FIRED')
+    const results = yield call(fetchRecents);
+    console.log(results, ' in saga');
+    yield put(loadRecentsSuccess(results));
+  } catch (e) {
+    yield put(loadResultsError(e));
+  }
+}
+
 export function* getResults() {
   yield takeLatest(LOAD_RESULTS, loadYelpResults);
+}
+
+export function* getRecents() {
+  yield takeLatest(LOAD_RECENTS, loadRecentResults);
 }

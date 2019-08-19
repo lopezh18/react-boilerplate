@@ -32,4 +32,14 @@ const saveSearch = async searchParams => {
   return data;
 };
 
-export { fetchLocations, saveSearch };
+const fetchRecents = async () => {
+  const response = await fetch(`${BASE_URL}/recentApi`);
+  const data = response.json();
+
+  if (response.status >= 400) {
+    throw new Error(response.error.message);
+  }
+  return data;
+};
+
+export { fetchLocations, saveSearch, fetchRecents };
