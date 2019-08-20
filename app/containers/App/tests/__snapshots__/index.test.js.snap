@@ -2,11 +2,17 @@
 
 exports[`<App /> should render and match the snapshot 1`] = `
 <div>
+  <Header />
   <Switch>
     <Route
-      component={[Function]}
       exact={true}
       path="/"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/recent"
+      render={[Function]}
     />
     <Route
       component={[Function]}

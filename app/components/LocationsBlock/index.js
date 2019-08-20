@@ -17,8 +17,9 @@ export default class Index extends Component {
   render() {
     let content = <p>Complete the form above to start your search</p>;
     const { businesses } = this.props.locations;
+    const { loading, errors } = this.props;
 
-    if (businesses && businesses.length > 0) {
+    if (businesses && businesses.length > 0 && !loading) {
       const toRender = businesses.map(business => (
         <BusinessCard
           key={business.id}
@@ -40,7 +41,16 @@ export default class Index extends Component {
         </div>
       );
     } else if (businesses && businesses.length === 0) {
-      content = <p>Sorry we couldn't find anything</p>;
+      content = <p>Sorry we could not find anything</p>;
+    } else if (loading) {
+      content = (
+        <img
+          alt="loading"
+          src="https://media.giphy.com/media/lpOxKH3VWxTPi/giphy.gif"
+        />
+      );
+    } else if (errors) {
+      content = <p>Sorry, something went wrong. Try your search again.</p>;
     }
     return <Block>{content}</Block>;
   }

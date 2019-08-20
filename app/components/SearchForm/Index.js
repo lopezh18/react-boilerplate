@@ -46,7 +46,9 @@ export default class Index extends Component {
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
-          <label htmlFor="term">Find: </label>
+          <label htmlFor="term" data-testid="find">
+            Find:{' '}
+          </label>
           <input
             name="term"
             placeholder="Barbers, spas, tacos"

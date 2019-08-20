@@ -27,7 +27,6 @@ function* loadYelpResults() {
 function* loadRecentResults() {
   try {
     const results = yield call(fetchRecents);
-    console.log(results, ' in saga');
     yield put(loadRecentsSuccess(results));
   } catch (e) {
     yield put(loadResultsError(e));

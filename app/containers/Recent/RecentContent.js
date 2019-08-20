@@ -15,6 +15,7 @@ export default class RecentContent extends Component {
   }
 
   render() {
+    const { loading, errors } = this.props;
     let content = <p>Navigate to the home page to start searching</p>;
     if (this.props.recentSearches.length > 0) {
       const { recentSearches } = this.props;
@@ -25,6 +26,17 @@ export default class RecentContent extends Component {
           location={search.location}
         />
       ));
+    } else if (loading) {
+      content = (
+        <img
+          alt="loading"
+          src="https://media.giphy.com/media/lpOxKH3VWxTPi/giphy.gif"
+        />
+      );
+    } else if (errors) {
+      content = (
+        <p>Looks like something went wrong, navigate home and try searching</p>
+      );
     }
     return <Div>{content}</Div>;
   }

@@ -1,3 +1,10 @@
+/*
+ * Search Form Container
+ *
+ * renders on the home route
+ *
+ */
+
 import { connect } from 'react-redux';
 import SearchForm from '../../components/SearchForm/index';
 import { loadResults } from '../../actions';

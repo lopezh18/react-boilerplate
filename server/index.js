@@ -26,14 +26,9 @@ app.use('/searchYelp', search);
 // 404 page
 // eslint-disable-next-line func-names
 app.use(function(err, req, res, next) {
-  if (err.stack) console.log(err.stack);
-
-  res.status(err.status || 500);
-
-  return res.json({
-    error: err,
-    message: err.message,
-  });
+  const error = new Error('Not Found');
+  error.status = 404;
+  return next(error);
 });
 
 // In production we need to pass these values in instead of relying on webpack
